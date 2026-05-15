@@ -19,6 +19,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class Image {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -34,8 +36,13 @@ public class Image {
     private LocalDateTime uploadDate;
     @Column
     private String tags;
-    @Column
+    @Column(name = "file",
+    columnDefinition = "LONGBLOB")
+
     @Lob
     private byte[] file;
-}
 
+    public String getFileName(){
+        return getName().concat(".").concat(getExtension().name());
+    }
+}
