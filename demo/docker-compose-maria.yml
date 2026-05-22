@@ -1,4 +1,4 @@
-services:
+   services:
   db:
     container_name: mariadb_imagelite
     image: mariadb:12-ubi
